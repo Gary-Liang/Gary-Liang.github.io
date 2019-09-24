@@ -19,6 +19,7 @@ let ajax = document.getElementById("page-structure");
 //$(document).ready(function() {
 $(function() {
 
+
     // CANVAS & MOBILE TEST
     let windowWidth = $(window).width(),
         windowHeight = $(window).height();

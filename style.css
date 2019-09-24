@@ -151,6 +151,55 @@ nav, div, article, /*section,*/ main, header {
 @media only screen and (max-width: 641px) {
     .case_study_footer .grid1 {
         margin-left: 0; } }*/
+.navbar {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 51px;
+    top: 0;
+}
+
+.navbar .navlinks {
+    position: absolute;
+    /*display: block;
+    overflow: hidden;
+    /*text-decoration: none;*/
+    font-size: 1.110em;
+    font-weight: bold;
+    top: 16px;
+    right: 32px;
+    height: 20px;
+    line-height: normal;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.01em;
+}
+
+.navlinks a:not(:last-child) {
+    margin-right: 16px;
+}
+
+.navbar a {
+    /*position: absolute;*/
+    text-decoration: none;
+    /*color: rgb(255,255,255);
+    font-size: 1.2em;
+    font-weight: bold;
+    top: 17px;
+    right: 32px;
+    height: 17px;
+    line-height: normal;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;*/
+    color: #8a8a8a;
+    /*transition: filter 0.15s ease;*/
+}
+
+.home-content {
+    top: 23.0%;
+    text-align: center;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
 
 .grid2 {
     /*float: left;*/
@@ -201,10 +250,106 @@ nav, div, article, /*section,*/ main, header {
     /*left: 18.5%;
     /*top: -80%;
      */
+    color: #8d8d8d;
     margin: auto;
     text-align: center;
     font-weight: bold;
                     }
+
+.grid4       {
+    text-transform: uppercase;
+}
+
+.home-navigation {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 210px;
+    height: 32px;
+    top: 30%;
+    margin: 0 auto;
+}
+
+.home-navigation .switch {
+    position: absolute;
+    width: 32px;
+    height: 100%;
+}
+
+.home-navigation .tech.switch {
+    left: 33.33%;
+}
+
+/* line 250, /home/frank/Documents/personal_site/app/assets/stylesheets/home.scss */
+.home-navigation .creative.switch {
+    left: 66.66%;
+}
+
+.home-navigation .switch .block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    -ms-transform: scale(0.531);
+    -webkit-transform: scale(0.531);
+    transform: scale(0.531);
+    transition: all 0.15s ease;
+    -webkit-transition: all 0.15s ease;
+}
+
+.home-navigation .active.switch .block {
+    visibility: hidden;
+    opacity: 0;
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+.home-navigation .switch:hover .block {
+    -ms-transform: scale(0.625);
+    -webkit-transform: scale(0.625);
+    transform: scale(0.625);
+}
+
+.home-navigation .name.switch:hover .block {
+    background-color: #8d8d8d;
+}
+
+.home-navigation .name.switch .icon {
+    background-image: url(assets/icons/profile.png);
+
+}
+
+.home-navigation .active.switch .icon {
+    visibility: visible;
+    opacity: 1;
+    background-position: center center;
+    background-size: cover;
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.home-navigation .switch .icon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+}
+
+/*.icon {
+    display: inline-block;
+    /*background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 /*@media only screen and (max-width: 641px) {
 
@@ -1597,14 +1742,25 @@ header {
 
 .header-text {
     /*position: relative;*/
-    text-align: center;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    position: absolute;
-    top: 20%;
-    left: 50%;
+    /*text-align: center;
+    /*-webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);*/
+    /*position: relative;
+    /*padding: 0;
+    margin: 0;*/
+    /*display: block;*/
+    /*top: 20%;
+    /*height: 100%;
+
+     */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /*left: 50%;
     /*margin: auto;
-    /*top: 23%;
+    /*top: 23%;*/
+    /*min-height: 100%;*/
     /*top: 20%;*/
     /*top: -moz-calc(50% + 3em);
     top: -o-calc(50% + 3em);
