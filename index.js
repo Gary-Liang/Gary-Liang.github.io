@@ -2,6 +2,8 @@
 
 import html2canvas from "html2canvas";
 import * as THREE from 'three';
+/*import velocity from 'velocity-animate';*/
+require('velocity-animate');
 
 
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
@@ -14,6 +16,25 @@ import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
 let background, renderBackground, renderScene, composer1, loader;
 
 let ajax = document.getElementById("page-structure");
+
+/*window.jQuery = window.$ = require(jQuery);*/
+
+/*require.config({
+    paths: {
+        "jquery": "node_modules/jquery/dist/jquery.js",
+        "velocity": "node_modules/velocity-animate/velocity.js",
+
+    },
+    shim: {
+        "velocity": {
+            deps: [ "jquery" ]
+        },
+        // Optional, if you're using the UI pack:
+        "velocity-ui": {
+            deps: [ "velocity" ]
+        }
+    }
+});*/
 
 //deprecated
 //$(document).ready(function() {

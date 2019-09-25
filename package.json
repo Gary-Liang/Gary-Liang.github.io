@@ -6,6 +6,7 @@
     "jquery": "^3.4.1",
     "requirejs": "^2.3.6",
     "three": "^0.108.0",
+    "velocity-animate": "^1.5.2",
     "webpack": "^4.40.2"
   },
   "devDependencies": {

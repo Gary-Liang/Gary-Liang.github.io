@@ -10,6 +10,9 @@ let plugins = [
         //RenderPass: "three/examples/jsm/postprocessing/RenderPass"
         //ShaderPass: "three/examples/jsm/postprocessing/ShaderPass",
         //ShaderCopy: "three/examples/jsm/shaders/ShaderCopy",
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
     })
 ];
 

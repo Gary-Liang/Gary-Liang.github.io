@@ -151,6 +151,16 @@ nav, div, article, /*section,*/ main, header {
 @media only screen and (max-width: 641px) {
     .case_study_footer .grid1 {
         margin-left: 0; } }*/
+a {
+    color: #fff;
+    -webkit-transition: filter 0.15s ease;
+    transition: filter 0.15s ease;
+}
+a:hover {
+    -webkit-filter: brightness(0.7);
+    filter: brightness(0.7);
+}
+
 .navbar {
     position: absolute;
     z-index: 10;
@@ -330,12 +340,12 @@ nav, div, article, /*section,*/ main, header {
 }
 
 .home-navigation .tech.switch .icon {
-    background-image: url("/assets/icons/tech.png");
+    background-image: url("assets/icons/tech.png");
 }
 
 /* line 316, /home/frank/Documents/personal_site/app/assets/stylesheets/home.scss */
 .home-navigation .creative.switch .icon {
-    background-image: url("/assets/icons/creative.png");
+    background-image: url("assets/icons/creative.png");
 }
 
 .home-navigation .active.switch .icon {
