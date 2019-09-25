@@ -12,7 +12,7 @@
 }*/
 
 
-@-webkit-viewport {
+/*@-webkit-viewport {
     width: device-width; }
 
 @-moz-viewport {
@@ -25,7 +25,7 @@
     width: device-width; }
 
 @viewport {
-    width: device-width; }
+    width: device-width; }*/
 
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
@@ -316,9 +316,26 @@ nav, div, article, /*section,*/ main, header {
     background-color: #8d8d8d;
 }
 
+.home-navigation .tech.switch:hover .block {
+    background-color: #47cf73;
+}
+
+.home-navigation .creative.switch:hover .block {
+    background-color: #0ebeff;
+}
+
 .home-navigation .name.switch .icon {
     background-image: url(assets/icons/profile.png);
 
+}
+
+.home-navigation .tech.switch .icon {
+    background-image: url("/assets/icons/tech.png");
+}
+
+/* line 316, /home/frank/Documents/personal_site/app/assets/stylesheets/home.scss */
+.home-navigation .creative.switch .icon {
+    background-image: url("/assets/icons/creative.png");
 }
 
 .home-navigation .active.switch .icon {
@@ -458,12 +475,12 @@ nav, div, article, /*section,*/ main, header {
         -moz-column-count: 1;
         column-count: 1; } }*/
 
-.horiscroll {
+/*.horiscroll {
     cursor: -webkit-grab !important;
     cursor: -moz-grab !important; }
 .horiscroll.horiscroll-moving-left, .horiscroll.horiscroll-moving-right {
     cursor: -webkit-grabbing !important;
-    cursor: -moz-grabbing !important; }
+    cursor: -moz-grabbing !important; }*/
 
 /*.padded {
     padding: 3em; }
@@ -578,14 +595,14 @@ nav, div, article, /*section,*/ main, header {
 nav {
     z-index: 997; }
 
-.slideshow-left, .slideshow-right, .mobile-carousel-phone {
-    z-index: 996; }
+/*.slideshow-left, .slideshow-right, .mobile-carousel-phone {
+    z-index: 996; }*/
 
 .header-text, .header-subtext, .form-dropdown-list, .case-study-featured-text, .device_screen {
     z-index: 10; }
 
-.home-tagline, .header-subtext, .header-category, .case-study-featured-image, .device_container {
-    z-index: 9; }
+/*.home-tagline, .header-subtext, .header-category, .case-study-featured-image, .device_container {
+    z-index: 9; }*/
 
 
 /* GLYPHS */
@@ -1286,7 +1303,7 @@ img {
     min-height: 100%;
     margin: auto;
     /*makes image non draggable*/
-    user-drag: none;
+    /*user-drag: none;*/
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -1302,7 +1319,7 @@ img.phone-accent-pull-left {
     right: 110%;
     height: 90%;
     height: -moz-calc(100% - 4em);
-    height: -o-calc(100% - 4em);
+    /*height: -o-calc(100% - 4em);*/
     height: -webkit-calc(100% - 4em);
     height: calc(100% - 4em);
     width: auto; }
@@ -1391,8 +1408,8 @@ img.phone-accent-pull-left {
 svg {
     image-rendering: optimizeSpeed;
     image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimize-contrast;
+    /*image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;*/
     -ms-interpolation-mode: nearest-neighbor; }
 
 /*#nclud-logo {

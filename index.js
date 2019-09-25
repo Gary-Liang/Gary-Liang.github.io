@@ -364,3 +364,33 @@ $(function() {
 
 
 });
+
+
+/*Home page elements*/
+/*resetHelloiaman();*/
+// daWidth("before load");
+/*var current = "";
+
+window.onload = function() {
+    $('.name.switch').on('touchstart click', function(e) {
+        e.preventDefault();
+        switchToHome('.name');
+    });
+    $('.tech.switch').on('touchstart click', function(e) {
+        e.preventDefault();
+        switchToHome('.tech');
+    });
+    $('.creative.switch').on('touchstart click', function(e) {
+        e.preventDefault();
+        switchToHome('.creative');
+    });
+    $('.avid.switch').on('touchstart click', function(e) {
+        e.preventDefault();
+        switchToHome('.avid');
+    });
+};
+window.onresize = function() {
+    maxFillText('.text-fill', completion=function() {
+        switchToHome(current);
+    });
+};   */
