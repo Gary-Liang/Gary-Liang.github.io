@@ -16,6 +16,7 @@ import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
 let background, renderBackground, renderScene, composer1, loader;
 
 let ajax = document.getElementById("page-structure");
+/*let loadingText = document.getElementById("loader-text");*/
 
 /*window.jQuery = window.$ = require(jQuery);*/
 
@@ -35,6 +36,7 @@ let ajax = document.getElementById("page-structure");
         }
     }
 });*/
+console.log("hi2");
 
 //deprecated
 //$(document).ready(function() {
@@ -44,7 +46,7 @@ $(function() {
     // CANVAS & MOBILE TEST
     let windowWidth = $(window).width(),
         windowHeight = $(window).height();
-    let isMobile = navigator.userAgent.match(/mobile/i);
+    /*let isMobile = navigator.userAgent.match(/mobile/i);*/
     let webGLTrue = false;
 
     if (window.WebGLRenderingContext) {
@@ -52,12 +54,12 @@ $(function() {
     }
 
     // CLASSES
-    if (isMobile) {
+    /*if (isMobile) {
         $('body').addClass('mobile');
     }
     else if (!isMobile) {
         $('body').addClass('desktop');
-    }
+    }*/
 
     // GLOBAL VARIABLES
     let img,
@@ -90,6 +92,7 @@ $(function() {
     //    target;
 
     // INITIAL LOAD FUNCTIONS
+
     startupFunctions();
 
 
@@ -99,12 +102,13 @@ $(function() {
         }
         initialLoader();
 
+
     });
 
     function startupFunctions() {
-        if (isMobile) {
+        /*if (isMobile) {
             $('body').removeClass('noscroll');
-        }
+        }*/
 
         widowControl();
     }
@@ -147,7 +151,7 @@ $(function() {
         let widowElements = $('h1, h2, h3, h4, h5, h6, li, p, figcaption, .case-study-tagline, .large-cta').not('.discovery_cell p, #site-nav li, footer li');
 
 
-        widowElements.each(function() {
+        /*widowElements.each(function() {
             $(this).html($(this).html().replace(/&nbsp;/g, ' '));
         });
 
@@ -155,8 +159,8 @@ $(function() {
             widowElements.each(function() {
                 $(this).html($(this).html().replace(/\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/,'&nbsp;$1'));
             });
-        }
-    };
+        }*/
+    }
 
     // HTML CANVAS & INITIAL LOAD FUNCTIONS
     function captureScreen() {
@@ -181,13 +185,13 @@ $(function() {
         $.each(loadText.split(''), function(i, letter){
             setTimeout(function(){
                 $('#loader-text').html($('#loader-text').html() + letter);
+                /*loadingText.html((loadingText).html() + letter);*/
             }, 70*i);
         });
 
         setTimeout(function(){
             loaderDone = true;
         }, 1700);
-
 
         //check to make sure the document has been fully loaded before removing loader
         let readyStateCheckInterval = setInterval(function() {
@@ -351,11 +355,11 @@ $(function() {
     }
 
     function loadPageCanvas() {
-        //$('html').velocity('scroll', {
-        //    axis: 'y',
-        //    duration: 1000,
-        //    mobileHA: false
-        //});
+        $('html').velocity('scroll', {
+            axis: 'y',
+            duration: 1000,
+            mobileHA: false
+        });
 
         animateable = true;
 
