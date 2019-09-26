@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Gary Liang</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 <div id="initial-loader" class="padded"><span id="loader-text"></span></div>
 
 <div id="main-body">
-    <footer>
-    <section id="page-structure" class="ajax">
-        <header class="wrapper height-95 black">
+
+    <div id="page-structure" class="ajax">
+        <div class="wrapper height-95 black">
             <div class="navbar">
                 <div class="navlinks">
                     <a href="/">  Home</a>
@@ -45,12 +45,13 @@
             </div>
 
             <div id="canvas">
-                <img id="image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141552/header-home-fallback.jpg">
+                <img id="image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141552/header-home-fallback.jpg" alt="">
                 <!--<img id="image" >-->
                 <!--<img id="image" src="flower.jpg">-->
             </div>
-        </header>
-    </section>
+        </div>
+    </div>
+    <footer>
     </footer>
     </div>
     <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -58,7 +59,7 @@
         crossorigin="anonymous"></script>
     <script type ="module" src ="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script>-->
-    <script src="main.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 
 
 </body>

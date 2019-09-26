@@ -41,7 +41,7 @@ console.log("hi2");
 //deprecated
 //$(document).ready(function() {
 $(function() {
-
+    console.log("hi3");
 
     // CANVAS & MOBILE TEST
     let windowWidth = $(window).width(),
@@ -52,7 +52,7 @@ $(function() {
     if (window.WebGLRenderingContext) {
         webGLTrue = true;
     }
-
+    console.log("hi4");
     // CLASSES
     /*if (isMobile) {
         $('body').addClass('mobile');
@@ -94,16 +94,20 @@ $(function() {
     // INITIAL LOAD FUNCTIONS
 
     startupFunctions();
+    console.log("hi5");
 
-
-    $(window).on('load', function(){
+   /* $(window).on('load', function(){*}*/
+    /*Had to comment out.*/
+        console.log("hi6");
         if (webGLTrue) {
             captureScreen();
+            console.log("hi7");
         }
+        console.log("hi8");
         initialLoader();
 
 
-    });
+  /*  });*/
 
     function startupFunctions() {
         /*if (isMobile) {
@@ -147,8 +151,8 @@ $(function() {
 
     // WIDOW CONTROL
     function widowControl() {
-        windowWidth = $(window).width();
-        let widowElements = $('h1, h2, h3, h4, h5, h6, li, p, figcaption, .case-study-tagline, .large-cta').not('.discovery_cell p, #site-nav li, footer li');
+       /* windowWidth = $(window).width();
+        let widowElements = $('h1, h2, h3, h4, h5, h6, li, p, figcaption, .case-study-tagline, .large-cta').not('.discovery_cell p, #site-nav li, footer li');*/
 
 
         /*widowElements.each(function() {
