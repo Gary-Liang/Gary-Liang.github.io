@@ -392,6 +392,143 @@ $(function() {
     }
 
 
+
+
+    /*Home page elements*/
+    function daWidth(event) {
+        let jquery_width = $('.home-content .i-am span').width();
+        let js_width = document.querySelector('.home-content .i-am span').offsetWidth;
+
+        console.log(event + " - jquery:" + jquery_width + ", js:" + js_width);
+    }
+    function resetHelloiaman() {
+        $('.home-content .i-am').removeAttr('style');
+        $('.home-content .i-am span').removeAttr('style');
+    }
+    function helloiaman(section) {
+        // resetHelloiaman();
+
+        let WIDTH = document.querySelector('.home-content .i-am span').offsetWidth;
+        // console.log(WIDTH);
+        let section_width;
+        let offset;
+
+        if (section === "helloiam") {
+            section_width = 203 / 263;
+            offset = 0;
+        } else if (section === "iama") {
+            section_width = 108.5 / 263;
+            offset = 128 / 263;
+        } else if (section === "iaman") {
+            section_width = 135 / 263;
+            offset = 128 / 263;
+        }
+
+        offset = offset * 100;
+        $('.home-content .i-am').css('width', (section_width * WIDTH).toString() + "px" );
+        $('.home-content .i-am span').css({
+            '-ms-transform': 'translateX(-' + offset.toString() + '%)',
+            '-webkit-transform': 'translateX(-' + offset.toString() + '%)',
+            'transform': 'translateX(-' + offset.toString() + '%)'
+        });
+    }
+    function maxFillText(selector, completion=function(){}) {
+        $(selector).removeAttr('style');
+        $(selector).textfill({
+            complete: function() {
+                completion();
+            }, maxFontPixels: 0
+        });
+    }
+    function randimateTechTitle() {
+        let LENGTH = 700;
+        let FRAMES = 2;
+        randimateText('.tech.title .line.one span', 'Tech', (LENGTH/FRAMES/4), FRAMES);
+        randimateText('.tech.title .line.two span', 'Lover', (LENGTH/FRAMES/5), FRAMES);
+    }
+// Switching functionality
+    function switchToHomeTitle(selector) {
+        $('.title').removeClass('visible');
+        $(selector + '.title').addClass('visible');
+        maxFillText(selector + '.title .text-fill');
+    }
+    function switchToHomeDetails(selector) {
+        $('.details').removeClass('visible');
+        $(selector + '.details').addClass('visible');
+    }
+    function switchToHomeSwitch(selector) {
+        $('.switch').removeClass('active');
+        $(selector + '.switch').addClass('active');
+    }
+    function switchToHome(selector) {
+        switchToHomeTitle(selector);
+        switchToHomeDetails(selector);
+        switchToHomeSwitch(selector);
+
+        // Case checks
+        if (selector === ".name") {
+            helloiaman('helloiam');
+        } else if ( isVowel(selector.charAt(1)) ) {
+            helloiaman('iaman');
+        } else {
+            helloiaman('iama');
+        }
+
+
+        if (selector === ".tech") {
+            randimateTechTitle();
+        }
+
+        current = selector;
+    }
+
+    function randimateText(selector, text, speed, frames) {
+        if (speed === undefined) {
+            speed = 50;
+        }
+        if (frames === undefined) {
+            frames = 8;
+        }
+        let theLetters = "abcdefghijklmnopqrstuvwxyz#%&^+=-"; // You can customize what letters it will cycle through
+        let ctnt = text; // Your text goes here
+        let increment = frames; // frames per step. Must be >2
+        // speed is per frame, not per rustle
+
+
+        let clen = ctnt.length;
+        let si = 0;
+        let stri = 0;
+        let block = "";
+        let fixed = "";
+        //Call self x times, whole function wrapped in setTimeout
+        (function rustle (i) {
+            setTimeout(function() {
+                if (--i) { rustle(i); }
+                nextFrame(i);
+                si = si + 1;
+            }, speed);
+        })(clen*increment+1);
+        function nextFrame(pos) {
+            for (let i=0; i<clen-stri; i++) {
+                //Random number
+                let num = Math.floor(theLetters.length * Math.random());
+                //Get random letter
+                let letter = theLetters.charAt(num);
+                block = block + letter;
+            }
+            if (si === (increment-1)) {
+                stri++;
+            }
+            if (si === increment) {
+                // Add a letter;
+                // every speed*10 ms
+                fixed = fixed +  ctnt.charAt(stri - 1);
+                si = 0;
+            }
+            $(selector).html(fixed + block);
+            block = "";
+        }
+    }
 });
 
 
