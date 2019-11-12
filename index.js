@@ -556,7 +556,7 @@ $(function() {
 console.log("theLasthi");
     let current = "";
 
-    window.onload = function() {
+    /*window.onload = function() {*/
         console.log("thelasthi2");
         $('.name.switch').on('touchstart click', function(e) {
             e.preventDefault();
@@ -574,7 +574,7 @@ console.log("theLasthi");
             e.preventDefault();
             switchToHome('.avid');
         });*/
-    };
+    /*};*/
     /*window.onresize = function() {
         maxFillText('.text-fill', function() {
             switchToHome(current);
