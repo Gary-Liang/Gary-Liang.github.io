@@ -13,6 +13,8 @@ let plugins = [
         $: "jquery",
         jQuery: "jquery",
         "window.jQuery": "jquery"
+
+
     })
 ];
 

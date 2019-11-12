@@ -11,6 +11,8 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { TexturePass } from 'three/examples/jsm/postprocessing/TexturePass';
 import { MaskPass, ClearMaskPass } from 'three/examples/jsm/postprocessing/MaskPass';
 import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
+import JQuery from "jquery";
+import textfill from "./jquery.textfill.min";
 
 //for some reason, it was undefined
 let background, renderBackground, renderScene, composer1, loader;
@@ -190,7 +192,7 @@ $(function() {
             setTimeout(function(){
                 $('#loader-text').html($('#loader-text').html() + letter);
                 /*loadingText.html((loadingText).html() + letter);*/
-            }, 70*i);
+            }, 60*i);
         });
 
         setTimeout(function(){
@@ -396,8 +398,8 @@ $(function() {
 
     /*Home page elements*/
     function daWidth(event) {
-        let jquery_width = $('.home-content .i-am span').width();
-        let js_width = document.querySelector('.home-content .i-am span').offsetWidth;
+        let jquery_width = $(/*.home-content */'.grid2 span').width();
+        let js_width = document.querySelector(/*'.home-content */'.grid2 span').offsetWidth;
 
         console.log(event + " - jquery:" + jquery_width + ", js:" + js_width);
     }
@@ -408,8 +410,8 @@ $(function() {
     function helloiaman(section) {
         // resetHelloiaman();
 
-        let WIDTH = document.querySelector('.home-content .i-am span').offsetWidth;
-        // console.log(WIDTH);
+        let WIDTH = document.querySelector('.home-content .i-am .grid2').offsetWidth;
+         console.log(WIDTH);
         let section_width;
         let offset;
 
@@ -417,7 +419,7 @@ $(function() {
             section_width = 203 / 263;
             offset = 0;
         } else if (section === "iama") {
-            section_width = 108.5 / 263;
+            section_width = 108 / 263;
             offset = 128 / 263;
         } else if (section === "iaman") {
             section_width = 135 / 263;
@@ -425,26 +427,36 @@ $(function() {
         }
 
         offset = offset * 100;
-        $('.home-content .i-am').css('width', (section_width * WIDTH).toString() + "px" );
-        $('.home-content .i-am span').css({
+        $('.home-content .i-am .grid2').css({
             '-ms-transform': 'translateX(-' + offset.toString() + '%)',
             '-webkit-transform': 'translateX(-' + offset.toString() + '%)',
             'transform': 'translateX(-' + offset.toString() + '%)'
+
         });
+        $('.home-content .i-am').css('width', (section_width * WIDTH).toString() + "px" );
+
+        console.log(offset);
+        console.log("this has worked");
+        // '-ms-transform': 'translateX(-' + offset.toString() + '%)',
+        //     '-webkit-transform': 'translateX(-' + offset.toString() + '%)',
+        //     'transform': 'translateX(-' + offset.toString() + '%)'
     }
+
+
     function maxFillText(selector, completion=function(){}) {
         $(selector).removeAttr('style');
-        $(selector).textfill({
+        jQuery(selector).textfill({
             complete: function() {
                 completion();
             }, maxFontPixels: 0
         });
     }
+
     function randimateTechTitle() {
         let LENGTH = 700;
         let FRAMES = 2;
-        randimateText('.tech.title .line.one span', 'Tech', (LENGTH/FRAMES/4), FRAMES);
-        randimateText('.tech.title .line.two span', 'Lover', (LENGTH/FRAMES/5), FRAMES);
+        randimateText('.tech.title .line.one span', 'TECH', (LENGTH/FRAMES/4), FRAMES);
+        randimateText('.tech.title .line.two span', 'LOVER', (LENGTH/FRAMES/5), FRAMES);
     }
 // Switching functionality
     function switchToHomeTitle(selector) {
@@ -460,6 +472,11 @@ $(function() {
         $('.switch').removeClass('active');
         $(selector + '.switch').addClass('active');
     }
+
+    function isVowel(s) {
+        return (/^[aeiou]$/i).test(s);
+    }
+
     function switchToHome(selector) {
         switchToHomeTitle(selector);
         switchToHomeDetails(selector);
@@ -467,10 +484,13 @@ $(function() {
 
         // Case checks
         if (selector === ".name") {
+            console.log('helloiam');
             helloiaman('helloiam');
         } else if ( isVowel(selector.charAt(1)) ) {
+            console.log('iaman');
             helloiaman('iaman');
         } else {
+            console.log('iama');
             helloiaman('iama');
         }
 
@@ -529,34 +549,38 @@ $(function() {
             block = "";
         }
     }
+
+    /*Home page elements*/
+    /*resetHelloiaman();*/
+ //daWidth("before load");
+console.log("theLasthi");
+    let current = "";
+
+    window.onload = function() {
+        console.log("thelasthi2");
+        $('.name.switch').on('touchstart click', function(e) {
+            e.preventDefault();
+            switchToHome('.name');
+        });
+        $('.tech.switch').on('touchstart click', function(e) {
+            e.preventDefault();
+            switchToHome('.tech');
+        });
+        $('.creative.switch').on('touchstart click', function(e) {
+            e.preventDefault();
+            switchToHome('.creative');
+        });
+        /*$('.avid.switch').on('touchstart click', function(e) {
+            e.preventDefault();
+            switchToHome('.avid');
+        });*/
+    };
+    /*window.onresize = function() {
+        maxFillText('.text-fill', function() {
+            switchToHome(current);
+        });
+    };*/
 });
 
 
-/*Home page elements*/
-/*resetHelloiaman();*/
-// daWidth("before load");
-/*var current = "";
 
-window.onload = function() {
-    $('.name.switch').on('touchstart click', function(e) {
-        e.preventDefault();
-        switchToHome('.name');
-    });
-    $('.tech.switch').on('touchstart click', function(e) {
-        e.preventDefault();
-        switchToHome('.tech');
-    });
-    $('.creative.switch').on('touchstart click', function(e) {
-        e.preventDefault();
-        switchToHome('.creative');
-    });
-    $('.avid.switch').on('touchstart click', function(e) {
-        e.preventDefault();
-        switchToHome('.avid');
-    });
-};
-window.onresize = function() {
-    maxFillText('.text-fill', completion=function() {
-        switchToHome(current);
-    });
-};   */
