@@ -509,7 +509,8 @@ $(function() {
         if (frames === undefined) {
             frames = 8;
         }
-        let theLetters = "abcdefghijklmnopqrstuvwxyz#%&^+=-"; // You can customize what letters it will cycle through
+        /*let theLetters = "abcdefghijklmnopqrstuvwxyz#%&^+=-";*/ // You can customize what letters it will cycle through
+        let theLetters = "01";
         let ctnt = text; // Your text goes here
         let increment = frames; // frames per step. Must be >2
         // speed is per frame, not per rustle

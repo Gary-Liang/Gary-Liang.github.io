@@ -664,6 +664,102 @@ a:hover {
     -webkit-transition: all 0.4s ease;
 }
 
+#footer {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+
+    color: #8a8a8a;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    letter-spacing: 3px;
+    z-index: 900;
+    font-family: "Lato", Helvetica, sans-serif;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+#footer,
+#footer .copyright,
+#footer .social-links,
+#footer .icon {
+    height: 27px;
+    display: inline-block;
+    overflow: visible;
+}
+#footer .copyright {
+    position: relative;
+    bottom: 5px;
+}
+#footer .social-links {
+    float: right;
+
+    position: relative;
+    bottom: 7px;  /*maybe highlight out*/
+
+    margin-left: 10px;
+    margin-right: 5px;
+}
+#footer .icon {
+    width: 27px;
+    border-radius: 3px;
+
+    margin-right: 2px;
+}
+
+.github.icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.linkedin.icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 515px) {
+    #footer {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+    }
+    #footer .copyright {
+        display: block;
+        width: 100%;
+        margin: 6px auto;
+
+        text-align: center;
+        bottom: 6px;
+    }
+    #footer .mobile-divider {
+        width: 30%;
+        height: 2px;
+        border-radius: 1px;
+        background-color: #8a8a8a;
+
+        display: inline-block;
+    }
+    #footer .social-links {
+        float: none;
+        position: relative;
+        left: 50%;
+
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+
+        margin: 0 0 5px;
+    } #footer .icon {
+          margin: 0;
+      } #footer .icon:first-child {
+            margin-right: 6px;
+        }
+}
+
 /*.icon {
     display: inline-block;
     /*background-position: center center;
