@@ -6,7 +6,7 @@
     "jquery": "^3.4.1",
     "jquery-textfill": "^0.6.0",
     "requirejs": "^2.3.6",
-    "three": "^0.108.0",
+    "three": "^0.137.0",
     "velocity-animate": "^1.5.2",
     "webpack": "^4.40.2"
   },
