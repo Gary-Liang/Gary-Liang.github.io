@@ -1,0 +1,24 @@
+{
+  "homepage": "https://gary-liang.github.io/",
+  "name": "Glitch Effect",
+  "version": "1.0.0",
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.3",
+    "jquery": "^3.4.1",
+    "jquery-textfill": "^0.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "requirejs": "^2.3.6",
+    "three": "^0.108.0",
+    "velocity-animate": "^1.5.2",
+    "webpack": "^4.40.2"
+  },
+  "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "webpack-cli": "^3.3.8"
+  }
+}
