@@ -7,9 +7,9 @@ import { TexturePass } from 'three/examples/jsm/postprocessing/TexturePass';
 import { MaskPass, ClearMaskPass } from 'three/examples/jsm/postprocessing/MaskPass';
 import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
 
-import React, {useEffect, useState } from 'react'
+import React, {forwardRef, useEffect, useState } from 'react'
 
-export default function GlitchEffect({appRef}) {
+const GlitchEffect = forwardRef(function GlitchEffect({textLoaderDone}, ref) {
 
 
     let screenShotCanvas,
@@ -21,7 +21,8 @@ export default function GlitchEffect({appRef}) {
     isFourOhFour = false,
     inputReady = true;
 
-    const appElement = appRef.current;
+    const appElement = ref.current;
+    console.log(textLoaderDone);
     console.log(appElement);
 
     const [webGL, setWebGL] = useState(false);
@@ -47,7 +48,18 @@ export default function GlitchEffect({appRef}) {
         });
     }
 
+    function triggerFunction() {
+        console.log(textLoaderDone);
+        console.log(appElement);
+        return <div className='testTrigger'></div>
+    }
+
 
     return <div className='glitchEffect'>
+        {triggerFunction()}
     </div>
-}
+
+});
+
+
+export default GlitchEffect;
