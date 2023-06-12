@@ -1,23 +1,28 @@
 import React, {useEffect, useState, useRef, useCallback } from 'react'
 import Intro from './components/Intro';
 import Portfolio from './components/Portfolio';
+import BackgroundImage from './images/light-black.png'
 
 export default function App() {
   const [isLoadedFirst, setIsLoadedFirst] = useState(true);
-  const appRef = useRef(null);
+  const [startIntroRender, setStartIntroRender] = useState(false);
+  const ref = useRef(null);
   
-  console.log("initial call: " + appRef);
+  console.log("initial call: " + ref);
 
   useEffect(() => {
-    if (appRef.current) {
-      console.log(appRef.current);
-      appRef.current.focus();
+    if (ref.current) {
+      console.log("app ref: " + ref);
+      console.log("app ref current: " + ref.current);
+      ref.current.focus();
+      setStartIntroRender(true);
     }
-  }, [appRef]);
+  }, [ref, setStartIntroRender]);
 
   return (
-    <div className="App" ref={appRef}>
-      {appRef && appRef.current ? <Intro appRef={appRef}/> : null}
+    <div className="App" ref={ref}>
+       <Intro ref={ref}/>
+       <img className="canvas" src={BackgroundImage} alt=""></img>
     </div>
   );
 } 

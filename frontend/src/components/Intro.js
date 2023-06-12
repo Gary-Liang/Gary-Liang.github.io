@@ -2,14 +2,14 @@ import React, {useEffect, useState, forwardRef } from 'react'
 import GlitchEffect from './GlitchEffect';
 
 
-const Intro = forwardRef((props, ref) => {
+const Intro = forwardRef(function Intro(props, ref) {
 
     const [textLoaderDone, setTextLoaderDone] = useState(false);
     const [animatedText, setAnimatedText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
     const loadText = "Hello, I am Gary Liang";
     const intervalTime = 60;
-    const appRef = ref;
+    // const introTestProp = testProp;
 
     console.log("intro call: "+ ref);
 
@@ -27,12 +27,12 @@ const Intro = forwardRef((props, ref) => {
             }, intervalTime * 4);
         }
 
-        if (ref && ref.current) {
-            console.log("called from intro level: " + ref.current);
-            appRef.current = ref.current;
-        }
+        // if (ref) {
+        //     console.log("called from intro level: " + ref.current);
+        //     appRef.current = ref.current;
+        // }
 
-    }, [currentIndex, appRef]);
+    }, [currentIndex]);
 
 
 
@@ -41,7 +41,7 @@ const Intro = forwardRef((props, ref) => {
         {!textLoaderDone ?
             <div className="helloIntro">
                 {animatedText}
-            </div> : (ref ? <GlitchEffect textLoaderDone={textLoaderDone} appRef={appRef}/> : null)
+            </div> : <GlitchEffect textLoaderDone={textLoaderDone} ref={ref}/>
         }
     </div>
 });
