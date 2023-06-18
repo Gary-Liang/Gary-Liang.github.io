@@ -8,12 +8,10 @@ export default function App() {
   const [startIntroRender, setStartIntroRender] = useState(false);
   const ref = useRef(null);
   
-  console.log("initial call: " + ref);
+  console.log("initial call: " + ref.current);
 
   useEffect(() => {
     if (ref.current) {
-      console.log("app ref: " + ref);
-      console.log("app ref current: " + ref.current);
       ref.current.focus();
       setStartIntroRender(true);
     }
@@ -22,7 +20,9 @@ export default function App() {
   return (
     <div className="App" ref={ref}>
        <Intro ref={ref}/>
-       <img className="canvas" src={BackgroundImage} alt=""></img>
+       <div id="canvas">
+          <img id="image" src={BackgroundImage} alt=""></img>
+       </div>
     </div>
   );
 } 

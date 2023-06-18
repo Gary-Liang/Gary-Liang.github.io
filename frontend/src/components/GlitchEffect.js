@@ -9,7 +9,7 @@ import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
 
 import React, {forwardRef, useEffect, useState, useRef } from 'react'
 
-const GlitchEffect = forwardRef(function GlitchEffect({textLoaderDone}, ref) {
+const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
 
 
     let screenShotCanvas,
@@ -28,7 +28,7 @@ const GlitchEffect = forwardRef(function GlitchEffect({textLoaderDone}, ref) {
 
     let delta = 0.1;
 
-    console.log(textLoaderDone);
+    console.log(ref.current.innerHTML);
 
     const [webGL, setWebGL] = useState(false);
     const [screenCaptured, setScreenCaptured] = useState(false);
@@ -40,7 +40,7 @@ const GlitchEffect = forwardRef(function GlitchEffect({textLoaderDone}, ref) {
         if (window.WebGLRenderingContext) {
             setWebGL(true);
         }
-    }) 
+    }, []); 
 
 
     /**
@@ -48,16 +48,17 @@ const GlitchEffect = forwardRef(function GlitchEffect({textLoaderDone}, ref) {
      */
     function captureScreen() {
         html2canvas(ref.current, {
-            letterRendering: true,
+            letterRendering: true
         }).then(canvas  => {
             screenShotCanvas = canvas;
             canvasDataURL = screenShotCanvas.toDataURL();
             canvasImage = new Image();
             canvasImage.src = canvasDataURL;
             setScreenCaptured(true);
-            // console.log("canvas: " + canvas);
-            // console.log("canvas height: " + canvas.height);
-        }, [setScreenCaptured]);
+            console.log("canvas: " + canvas);
+            console.log("canvas height: " + canvas.height);
+            renderGlitchEffect();
+        });
     }
 
 
@@ -194,10 +195,6 @@ const GlitchEffect = forwardRef(function GlitchEffect({textLoaderDone}, ref) {
         if (webGL) {
             console.log("i was executed");
             captureScreen();
-            console.log("screen shot canvas: " + screenShotCanvas);
-            if (screenCaptured) {
-                //renderGlitchEffect();
-            }
 
         }
     }

@@ -52,7 +52,16 @@ h1 {
     content: '';
 }
 
-/* .canvas {
+body.noscroll {
+    overflow: hidden;
+    position: fixed; }
+
+nav, div, article, /*section,*/ main, header {
+    display: block;
+    position: relative;
+    overflow: hidden;}
+
+.canvas {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -69,7 +78,7 @@ h1 {
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: 1;} */
+    opacity: 1;}
 
 @-webkit-keyframes cursor-blink {
     0% {

@@ -8,10 +8,8 @@ const Intro = forwardRef(function Intro(props, ref) {
     const [animatedText, setAnimatedText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
     const loadText = "Hello, I am Gary Liang";
-    const intervalTime = 60;
+    const intervalTime = 45;
     // const introTestProp = testProp;
-
-    console.log("intro call: "+ ref);
 
     useEffect(() => {
         if (currentIndex < loadText.length) {
@@ -41,7 +39,7 @@ const Intro = forwardRef(function Intro(props, ref) {
         {!textLoaderDone ?
             <div className="helloIntro">
                 {animatedText}
-            </div> : <GlitchEffect textLoaderDone={textLoaderDone} ref={ref}/>
+            </div> : <GlitchEffect ref={ref}/>
         }
     </div>
 });
