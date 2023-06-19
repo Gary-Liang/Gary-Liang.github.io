@@ -1,5 +1,6 @@
 import html2canvas from "html2canvas";
 import * as THREE from 'three';
+import BackgroundImage from '../images/light-black.png'
 
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
@@ -9,13 +10,12 @@ import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
 
 import React, {forwardRef, useEffect, useState, useRef } from 'react'
 
-const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
+const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) {
 
 
     let screenShotCanvas,
     canvasDataURL,
     canvasImage,
-    animateable = true,
     popstate = false,
     isFourOhFour = false,
     inputReady = true,
@@ -27,11 +27,13 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
     let windowHalfY = SCREEN_HEIGHT / 2;
 
     let delta = 0.1;
+    let fps = 120;
 
     console.log(ref.current.innerHTML);
 
     const [webGL, setWebGL] = useState(false);
     const [screenCaptured, setScreenCaptured] = useState(false);
+    const [animateable, setAnimateable] = useState(true);
     const rendererRef = useRef(null);
     // const mainBodyRef = useRef(null);
 
@@ -39,6 +41,7 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
     useEffect(() => {
         if (window.WebGLRenderingContext) {
             setWebGL(true);
+            console.log("webGL set to true");
         }
     }, []); 
 
@@ -48,15 +51,17 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
      */
     function captureScreen() {
         html2canvas(ref.current, {
-            letterRendering: true
-        }).then(canvas  => {
-            screenShotCanvas = canvas;
-            canvasDataURL = screenShotCanvas.toDataURL();
-            canvasImage = new Image();
-            canvasImage.src = canvasDataURL;
+            letterRendering: true,
+            // preserveDrawingBuffer: true  // Enable preserving the drawing buffer
+        }).then(()  => {
+            // screenShotCanvas = canvas;
+            //canvasDataURL = BackgroundImage;
+            // canvasImage = new Image();
+            // canvasImage.src = canvasDataURL;
+            // canvasImage.src = BackgroundImage;
             setScreenCaptured(true);
-            console.log("canvas: " + canvas);
-            console.log("canvas height: " + canvas.height);
+            // console.log("canvas: " + canvas);
+            // console.log("canvas height: " + canvas.height);
             renderGlitchEffect();
         });
     }
@@ -84,7 +89,6 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
            glitchDelay = 1,
             glitchAmplification = .5;
 
-        let fps = 20;
         if (isFourOhFour) {
             fps = 5;
         }
@@ -100,7 +104,7 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
             SCREEN_HEIGHT = 4096;
         }*/
 
-        function init(){
+        function setupGlitch(){
             scene = new THREE.Scene();
             sceneBG = new THREE.Scene();
 
@@ -108,7 +112,7 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
             camera.position.z = 100;
 
 
-            let texture = new THREE.TextureLoader().load( canvasDataURL );
+            let texture = new THREE.TextureLoader().load( BackgroundImage );
             // turns off resizing
             texture.minFilter = THREE.LinearFilter;
 
@@ -144,12 +148,13 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
             renderBackground = new RenderPass( sceneBG, camera);
 
             // Set element attributes and append to mainBodyRef
-            renderer.domElement.className = 'introLoader';
+            renderer.domElement.className = 'visualGlitch';
             renderer.domElement.style.height = SCREEN_HEIGHT;
+            // renderer.domElement.preserveDrawingBuffer = true;
             ref.current.appendChild(renderer.domElement);
 
             // Store the renderer reference
-            rendererRef.current = renderer;
+            // rendererRef.current = renderer;
 
             let rtParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: true };
 
@@ -180,22 +185,30 @@ const GlitchEffect = forwardRef(function GlitchEffect(props, ref) {
 
         function animate() {
             if (animateable){
-                setTimeout(function(){
+                setTimeout(() => {
                     render();
                     requestAnimationFrame( animate );
                 }, 1000 / fps);
             }
         }
 
-        init();
+        setupGlitch();
         animate();
+        stopAnimation();
+        
+    }
+
+    function stopAnimation() {
+        setTimeout(() => {
+            setAnimateable(false);
+            setGlitchRendered(true);
+        }, 2000);
     }
 
     function startGlitchEffect() {    
         if (webGL) {
             console.log("i was executed");
             captureScreen();
-
         }
     }
 
