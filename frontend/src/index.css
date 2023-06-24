@@ -6,8 +6,21 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
+
+
+/* INCLUDED */
+/* VARIABLES */
+/* GRID */
+body.noscroll {
+    overflow: hidden;
+    position: fixed; }
+
+nav, div, article, /*section,*/ main, header {
+    display: block;
+    position: relative;
+    overflow: hidden;}
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -20,6 +33,7 @@ h1 {
 
 .introLoader {
     height: 100vh;
+    z-index: 100;
 }
 
 .helloIntro {
@@ -60,25 +74,6 @@ nav, div, article, /*section,*/ main, header {
     display: block;
     position: relative;
     overflow: hidden;}
-
-#canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;}
-
-#canvas canvas {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 1;}
 
 @-webkit-keyframes cursor-blink {
     0% {
@@ -130,15 +125,166 @@ nav, div, article, /*section,*/ main, header {
     opacity: 1;
     -webkit-transition: opacity 100ms ease-out;
     -moz-transition: opacity 100ms ease-out;
-    transition: opacity 100ms ease-out; }
+    transition: opacity 100ms ease-out;
+}
+
 .visualGlitch.active {
-    opacity: 1; }
+    opacity: 1;
+}
 
 
-.homePage {
+ /* maybe comment out later */
+.background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+}
+    
+.background canvas {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+}
+
+
+/* .homePage {
     top: 23.0%;
     text-align: center;
     text-shadow: 2px 2px rgb(0, 0, 0);
+} */
+
+/* IMAGES */
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+img.phone-accent-pull-left {
+    position: absolute;
+    top: 4em;
+    right: 110%;
+    height: 90%;
+    height: -moz-calc(100% - 4em);
+    height: -webkit-calc(100% - 4em);
+    height: calc(100% - 4em);
+    width: auto; 
+}
+
+@media only screen and (max-width: 641px) {
+    img.phone-accent-pull-left {
+        margin-top: 4em;
+        position: relative;
+        top: auto;
+        right: auto;
+        height: auto;
+        width: 100%; 
+    } 
+}
+
+
+.homePage {
+    height: 100vh;
+    background-image: url('./images/light-black.png');
+}
+
+.titleHeader {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 129px;
+}
+
+.homePage .title {
+    visibility: hidden;
+    opacity: 0;
+    -ms-transform: rotate(7deg) translate(20px, -20px);
+    /* IE 9 */
+    -webkit-transform: rotate(7deg) translate(20px, -20px);
+    /* Chrome, Safari, Opera */
+    transform: rotate(7deg) translate(20px, -20px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease;
+}
+
+.homePage .title .line {
+    height: 47%;
+}
+
+.title .visible {
+    visibility: visible;
+    opacity: 1;
+    -ms-transform: none;
+    /* IE 9 */
+    -webkit-transform: none;
+    /* Chrome, Safari, Opera */
+    transform: none;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.homePage .name .title {
+    color: #8d8d8d;
+    text-shadow: 5px 5px rgba(0, 0, 0, 0.28);
+}
+
+.titleBody, .header-subtext, .form-dropdown-list, .case-study-featured-text, .device_screen {
+    z-index: 10; }
+
+.grid2 {
+    /* position: absolute;
+    display: block; */
+
+    font-family: "Lato", Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 43px;
+
+    margin: auto;
+
+    text-align: center;
+    white-space: nowrap;
+    transform: translateX(0px);
+    transition: transform 0.4s ease;
+    -webkit-transition: transform 0.4s ease;
+}
+
+
+
+
+.i-am .text-fill {
+    width: 247px;
+    height: 10%;
+    margin: 0 auto;
+    transition: transform 0.4s ease;
+    -webkit-transition: width 0.4s ease;
 }
 
 

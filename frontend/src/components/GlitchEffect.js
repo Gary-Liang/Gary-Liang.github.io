@@ -19,6 +19,7 @@ const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) 
     popstate = false,
     isFourOhFour = false,
     inputReady = true,
+    renderer,
     SCREEN_WIDTH = window.innerWidth,
     SCREEN_HEIGHT = window.innerHeight,
     background, renderBackground, renderScene, composer1, loader;
@@ -49,7 +50,7 @@ const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) 
     /**
      * We need to capture the screen of the application so we can apply 3d rendering to our glitch effect loaders.
      */
-    function captureScreen() {
+    function renderScreen() {
         html2canvas(ref.current, {
             letterRendering: true,
             // preserveDrawingBuffer: true  // Enable preserving the drawing buffer
@@ -75,7 +76,6 @@ const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) 
         var camera,
             scene,
             sceneBG,
-            renderer,
             composer,
             composerScene;
 
@@ -202,13 +202,14 @@ const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) 
         setTimeout(() => {
             setAnimateable(false);
             setGlitchRendered(true);
+            ref.current.removeChild(renderer.domElement);
         }, 2000);
     }
 
     function startGlitchEffect() {    
         if (webGL) {
             console.log("i was executed");
-            captureScreen();
+            renderScreen();
         }
     }
 
