@@ -1,0 +1,42 @@
+{
+  "homepage": "https://gary-liang.github.io/",
+  "name": "Gary Liang - Portfolio",
+  "version": "1.0.0",
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.3",
+    "jquery": "^3.4.1",
+    "jquery-textfill": "^0.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "requirejs": "^2.3.6",
+    "three": "^0.108.0",
+    "velocity-animate": "^1.5.2",
+    "webpack": "^4.40.2",
+    "web-vitals": "^3.3.1"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "react-scripts": "^5.0.1",
+    "webpack-cli": "^3.3.8"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
