@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useRef, useCallback } from 'react'
 import Intro from './components/Intro';
 import Portfolio from './components/Portfolio';
+import Home from './components/Home';
 
 export default function App() {
   const [isLoadedFirst, setIsLoadedFirst] = useState(true);
@@ -22,7 +23,7 @@ export default function App() {
     <div className="App" ref={ref}>
       {!glitchRendered ? 
         <Intro setGlitchRendered={setGlitchRendered} ref={ref}/> :
-        <Portfolio />
+        <Home />
       }
     </div>
   );

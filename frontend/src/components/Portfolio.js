@@ -1,4 +1,3 @@
-import BackgroundImage from '../images/light-black.png'
 
 
 export default function Portfolio() {

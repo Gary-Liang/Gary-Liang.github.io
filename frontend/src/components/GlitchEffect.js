@@ -1,6 +1,6 @@
 import html2canvas from "html2canvas";
 import * as THREE from 'three';
-import BackgroundImage from '../images/light-black.png'
+import BackgroundImage from '../assets/images/light-black.png'
 
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';

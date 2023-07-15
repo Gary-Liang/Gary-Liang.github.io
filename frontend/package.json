@@ -4,15 +4,19 @@
   "version": "1.0.0",
   "dependencies": {
     "html2canvas": "^1.0.0-rc.3",
-    "jquery": "^3.4.1",
-    "jquery-textfill": "^0.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-bootstrap": "^2.7.1",
+    "react-router-dom": "^6.8.1",
+    "swiper": "^8.4.6",
     "requirejs": "^2.3.6",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.2",
     "three": "^0.108.0",
     "velocity-animate": "^1.5.2",
-    "webpack": "^4.40.2",
-    "web-vitals": "^3.3.1"
+    "web-vitals": "^3.3.1",
+    "webpack": "^4.40.2"
   },
   "scripts": {
     "predeploy": "npm run build",

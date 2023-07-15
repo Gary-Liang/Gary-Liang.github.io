@@ -205,7 +205,7 @@ img.phone-accent-pull-left {
 
 .homePage {
     height: 100vh;
-    background-image: url('./images/light-black.png');
+    background-image: url('./assets/images/light-black.png');
 }
 
 .titleHeader {
@@ -256,8 +256,8 @@ img.phone-accent-pull-left {
     z-index: 10; }
 
 .grid2 {
-    /* position: absolute;
-    display: block; */
+    position: absolute;
+    display: block;
 
     font-family: "Lato", Helvetica, sans-serif;
     font-weight: bold;
