@@ -190,7 +190,7 @@ const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) 
                 setTimeout(() => {
                     render();
                     requestAnimationFrame( animate );
-                }, 1000 / fps);
+                }, 2500 / fps);
             }
         }
 
@@ -205,7 +205,7 @@ const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) 
             setAnimateable(false);
             setGlitchRendered(true);
             ref.current.removeChild(renderer.domElement);
-        }, 2000);
+        }, 1500);
     }
 
     function startGlitchEffect() {    

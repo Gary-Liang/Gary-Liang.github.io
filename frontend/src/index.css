@@ -112,29 +112,6 @@ body.noscroll {
 }
 
 
- /* maybe comment out later */
-/* .background {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-}
-    
-.background canvas {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 1;
-} */
-
-
 @media only screen and (max-width: 641px) {
     img.phone-accent-pull-left {
         margin-top: 4em;
