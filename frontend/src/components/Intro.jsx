@@ -2,16 +2,14 @@ import React, {useEffect, useState, forwardRef } from 'react'
 import GlitchEffect from './GlitchEffect';
 
 
-const Intro = forwardRef((props, ref) => {
+const Intro = forwardRef(function Intro({setGlitchRendered}, ref) {
 
     const [textLoaderDone, setTextLoaderDone] = useState(false);
     const [animatedText, setAnimatedText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [pageLoaded, setPageLoaded] = useState(false);
     const loadText = "Hello, I am Gary Liang";
-    const intervalTime = 60;
-    const appRef = ref;
-
-    console.log("intro call: "+ ref);
+    const intervalTime = 45;
 
     useEffect(() => {
         if (currentIndex < loadText.length) {
@@ -27,21 +25,25 @@ const Intro = forwardRef((props, ref) => {
             }, intervalTime * 4);
         }
 
-        if (ref && ref.current) {
-            console.log("called from intro level: " + ref.current);
-            appRef.current = ref.current;
+    }, [currentIndex]);
+
+
+    useEffect(() => {
+        console.log('calling document ready state ' + document.readyState);
+        if (document.readyState === 'complete') {
+                setPageLoaded(true);
+                console.log('set page state loaded to true');
         }
-
-    }, [currentIndex, appRef]);
-
+    },[textLoaderDone]);
 
 
 
-    return <div className="introLoader">
+
+    return <div className="introLoader" >
         {!textLoaderDone ?
             <div className="helloIntro">
                 {animatedText}
-            </div> : (ref ? <GlitchEffect textLoaderDone={textLoaderDone} appRef={appRef}/> : null)
+            </div> : (pageLoaded ? <GlitchEffect setGlitchRendered={setGlitchRendered} ref={ref}/> : null)
         }
     </div>
 });

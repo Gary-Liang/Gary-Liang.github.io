@@ -1,25 +1,21 @@
-body {
-    margin: auto;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 100vh;
-    overflow: hidden;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
-}
 
-h1 {
-    text-align: center;
-}
+
 
 .introLoader {
     height: 100vh;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.75);
+    max-width: 100%;
 }
 
 .helloIntro {
@@ -30,6 +26,7 @@ h1 {
     display: block;
     font-family: 'Lato', sans-serif;
     font-size: 180%;
+    cursor: default;
 }
 
 @media only screen and (max-width: 641px) {
@@ -50,6 +47,11 @@ h1 {
     animation: cursor-blink 400ms steps(1) infinite;
     content: '';
 }
+
+body.noscroll {
+    overflow: hidden;
+    position: fixed; }
+
 
 @-webkit-keyframes cursor-blink {
     0% {
@@ -92,3 +94,64 @@ h1 {
         opacity: 0;
     }
 }
+
+/* glitch effect */
+.visualGlitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    -webkit-transition: opacity 100ms ease-out;
+    -moz-transition: opacity 100ms ease-out;
+    transition: opacity 100ms ease-out;
+    background: rgba(25, 25, 25, .75);
+}
+
+.visualGlitch.active {
+    opacity: 1;
+}
+
+
+ /* maybe comment out later */
+/* .background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+}
+    
+.background canvas {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+} */
+
+
+@media only screen and (max-width: 641px) {
+    img.phone-accent-pull-left {
+        margin-top: 4em;
+        position: relative;
+        top: auto;
+        right: auto;
+        height: auto;
+        max-width: 100%; 
+    } 
+}
+
+
+@layer base {
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    }
+  }
+
