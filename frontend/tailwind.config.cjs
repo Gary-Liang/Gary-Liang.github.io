@@ -6,13 +6,16 @@ module.exports = {
       'lg2': {'max': '1623px'},
       'lg': {'max': '1023px'},
       'tl': {'max': '723px'},
-      },
+    },
     extend: {
+      colors: {
+        primary: "#008b8b",
+      },
       backgroundImage: {
         'back': "url('./src/assets/images/bg.jpg')",
         'skills': "url('./src/assets/images/banner-bg.png')"
       }
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };

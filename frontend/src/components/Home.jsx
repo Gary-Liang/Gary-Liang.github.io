@@ -1,18 +1,22 @@
 import React from 'react'
+import About from "./About"
 import Header from "./Header"
 import Contact from "./Contact"
 import Footer from "./Footer"
 import Projects from "./Projects"
 import Skills from "./Skills"
 
-export default function Home() {
+function Home() {
   return (
     <>
-     <Header/> 
+     <Header/>
+     <About/> 
      <Skills/> 
      <Projects/>
      <Contact/>
      <Footer/>
     </>
-  );
+  )
 }
+
+export default Home

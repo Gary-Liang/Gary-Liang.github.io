@@ -10,7 +10,6 @@ const Intro = forwardRef(function Intro({setGlitchRendered}, ref) {
     const [pageLoaded, setPageLoaded] = useState(false);
     const loadText = "Hello, I am Gary Liang";
     const intervalTime = 45;
-    // const introTestProp = testProp;
 
     useEffect(() => {
         if (currentIndex < loadText.length) {
@@ -25,11 +24,6 @@ const Intro = forwardRef(function Intro({setGlitchRendered}, ref) {
                 setTextLoaderDone(true)
             }, intervalTime * 4);
         }
-
-        // if (ref) {
-        //     console.log("called from intro level: " + ref.current);
-        //     appRef.current = ref.current;
-        // }
 
     }, [currentIndex]);
 
