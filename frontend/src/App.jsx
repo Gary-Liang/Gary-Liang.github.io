@@ -6,12 +6,12 @@ export default function App() {
   const [isLoadedFirst, setIsLoadedFirst] = useState(true);
   const [startIntroRender, setStartIntroRender] = useState(false);
   const [glitchRendered, setGlitchRendered] = useState(false);
-
+  
   const ref = useRef(null);
-  console.log("initial call: " + ref.current);
+
 
   useEffect(() => {
-    const dataFromStorage = sessionStorage.getItem('loadedData');
+    const dataFromStorage = localStorage.getItem('loadedData');
     if (dataFromStorage !== null && dataFromStorage.trim() !== '') {
       setGlitchRendered(true);
     } else if (ref.current) {
@@ -21,12 +21,13 @@ export default function App() {
   }, [ref, setStartIntroRender]);
 
   return (
-    <div className="App" ref={ref}>
-      {!glitchRendered ? 
-        <Intro setGlitchRendered={setGlitchRendered} ref={ref}/> :
-        <Home />
-      }
-    </div>
+    <>
+      <div className={`App`} ref={ref}>
+        {!glitchRendered ? 
+          <Intro setGlitchRendered={setGlitchRendered} ref={ref}/> : <Home/>
+        }
+      </div>
+    </>
   );
 } 
 

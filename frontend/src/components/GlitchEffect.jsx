@@ -65,7 +65,7 @@ const GlitchEffect = forwardRef(function GlitchEffect({setGlitchRendered}, ref) 
             // console.log("canvas height: " + canvas.height);
             renderGlitchEffect();
 
-            sessionStorage.setItem('loadedData', 'glitchRendered');
+            localStorage.setItem('loadedData', 'glitchRendered');
         });
     }
 
