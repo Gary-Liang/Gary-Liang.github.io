@@ -2,7 +2,7 @@ import React from 'react'
 import laptop from "../assets/images/portfolio_laptop.png"
 import self from "../assets/images/portfolio_self.png"
 import bg from "../assets/images/bg.png"
-import Navbar from './Navbar'
+import Navbar from './NavBar'
 import "../styles.css"
 
 function Header() {
