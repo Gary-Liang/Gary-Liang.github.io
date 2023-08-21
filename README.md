@@ -7,7 +7,7 @@ Welcome to my portfolio website! This project showcases my skills, projects, and
 
 - React: A JavaScript library for building user interfaces.
 - Vite: A fast build tool that sets up your project with instant loading.
-- EmailJS: A service for sending emails directly from JavaScript.
+- EmailJS: An API service for sending emails directly from JavaScript.
 - Tailwind CSS: A utility-first CSS framework for rapid UI development.
 - DaisyUI: A plugin for Tailwind CSS that provides additional UI components.
 - Three.js: A JavaScript library for creating and displaying 3D graphics in a web browser.
@@ -25,7 +25,7 @@ Welcome to my portfolio website! This project showcases my skills, projects, and
 2. Navigate to the project directory: `cd your-portfolio`
 3. Install dependencies: `npm install`
 4. Run the development server: `npm run dev`
-5. Open your browser and go to `http://localhost:3000` to see your portfolio.
+5. Open your browser and go to `http://localhost:5173` to see your portfolio.
 
 ## Deployment
 
