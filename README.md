@@ -1,6 +1,6 @@
 # My Portfolio
 
-Welcome to my portfolio website! This project showcases my skills, projects, and contact information. You can check out the live site at [My Portfolio]([Gary-Liang/Gary-Liang.github.io](https://gary-liang.github.io/)).
+Welcome to my portfolio website! This project showcases my skills, projects, and contact information. You can check out the live site at [My Portfolio]((https://gary-liang.github.io/)).
 
 ## Technologies Used
 
